@@ -19,9 +19,11 @@ package org.openhab.binding.elerotransmitterstick.internal.stick;
  */
 public enum CommandType {
     UP,
+    UPAUTO,
     INTERMEDIATE,
     VENTILATION,
     DOWN,
+    DOWNAUTO,
     STOP,
     INFO,
     CHECK,
@@ -31,7 +33,11 @@ public enum CommandType {
         if (percentage == 0) {
             return UP;
         }
-
+        
+        if (percentage == 10) {
+            return UPAUTO;
+        }
+        
         if (percentage == 25) {
             return CommandType.INTERMEDIATE;
         }
@@ -40,6 +46,10 @@ public enum CommandType {
             return CommandType.VENTILATION;
         }
 
+        if (percentage == 90) {
+            return DOWNAUTO;
+        }
+        
         if (percentage == 100) {
             return CommandType.DOWN;
         }
