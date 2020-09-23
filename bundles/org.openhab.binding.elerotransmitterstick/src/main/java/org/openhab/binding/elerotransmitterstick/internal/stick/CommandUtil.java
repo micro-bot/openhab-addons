@@ -67,12 +67,16 @@ public class CommandUtil {
         switch (command) {
             case DOWN:
                 return (byte) 0x40;
+            case DOWNAUTO:
+                return (byte) 0x41;
             case INTERMEDIATE:
                 return (byte) 0x44;
             case STOP:
                 return (byte) 0x10;
             case UP:
                 return (byte) 0x20;
+            case UPAUTO:
+                return (byte) 0x21;
             case VENTILATION:
                 return (byte) 0x24;
             default:
